@@ -888,7 +888,7 @@
             var p = urlParams.get('p');
             var id = urlParams.get('id');
 
-            fetch(`https://docs.isjl.org/files/theme/manifest.json`)
+            fetch(`/site.webmanifest`)
                 .then(response => response.json())
                 .then(data => {
                     if (p !== null) {
