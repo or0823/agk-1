@@ -1,25 +1,25 @@
 
 {
-    const head = document.head;
-    var urlParams = new URLSearchParams(window.location.search);
-    var p = urlParams.get('p');
-    var id = urlParams.get('id');
+    const URLSearchParams = window.URLSearchParams;
+    let urlParams = new URLSearchParams(window.location.search);
+    let p = urlParams.get('p');
+    let id = urlParams.get('id');
 
     fetch(`site.webmanifest`)
         .then(response => response.json())
         .then(data => {
             if (p !== null) {
-                var dataid = data.filter(obj => obj.permalink === p)[0];
+                let dataid = data.filter(obj => obj.permalink === p)[0];
             }
             else if (id !== null) {
-                var dataid = data.filter(obj => obj.id === parseInt(id))[0];
+                let dataid = data.filter(obj => obj.id === parseInt(id))[0];
             }
             else {
-                var dataid = data.filter(obj => obj.id === 1)[0];
+                let dataid = data.filter(obj => obj.id === 1)[0];
             }
-            var stitle = dataid.title + ": Slot Gacor Link Alternatif Terpercaya - " + dataid.upper;
-            var sdesc = dataid.title + " adalah situs judi slot online gacor terbaik hari ini dan terpercaya terbaru 2023. "+dataid.title +" menyediakan link alternatif resmi dan Rtp live."
-            var site = {
+            let stitle = dataid.title + ": Slot Gacor Link Alternatif Terpercaya - " + dataid.upper;
+            let sdesc = dataid.title + " adalah situs judi slot online gacor terbaik hari ini dan terpercaya terbaru 2023. "+dataid.title +" menyediakan link alternatif resmi dan Rtp live."
+            let site = {
                 "title": stitle,
                 "meta_name": [{
                     "name": "description",
@@ -180,44 +180,44 @@
             };
             document.title = stitle;
             site.meta_name.forEach(meta => {
-                var metaTagOld = document.querySelector('meta[name="' + meta.name + '"]');
+                let metaTagOld = document.querySelector('meta[name="' + meta.name + '"]');
                 if (metaTagOld) {
                     metaTagOld.setAttribute("content", site.meta_name.filter(function (a) { return new RegExp(meta.name, "i").test(a.name); })[0].content);
                 } else {
-                    var metaTag = document.createElement('meta');
+                    let metaTag = document.createElement('meta');
                     metaTag.setAttribute('name', meta.name);
                     metaTag.setAttribute('content', meta.content);
                     head.appendChild(metaTag);
                 }
             });
             site.meta_property.forEach(meta => {
-                var metaTagOld = document.querySelector('meta[property="' + meta.property + '"]');
+                let metaTagOld = document.querySelector('meta[property="' + meta.property + '"]');
                 if (metaTagOld) {
                     metaTagOld.setAttribute("content", site.meta_property.filter(function (a) { return new RegExp(meta.property, "i").test(a.property); })[0].content);
                 } else {
-                    var metaTag = document.createElement('meta');
+                    let metaTag = document.createElement('meta');
                     metaTag.setAttribute('property', meta.property);
                     metaTag.setAttribute('content', meta.content);
                     head.appendChild(metaTag);
                 }
             });
             site.link_rel.forEach(link => {
-                var linkOld = document.querySelector('link[rel="' + link.rel + '"]');
+                let linkOld = document.querySelector('link[rel="' + link.rel + '"]');
                 if (linkOld) {
                     linkOld.setAttribute("href", site.link_rel.filter(function (a) { return new RegExp(link.rel, "i").test(a.rel); })[0].href);
                 } else {
-                    var linkRel = document.createElement('link');
+                    let linkRel = document.createElement('link');
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('href', link.href);
                     head.appendChild(linkRel);
                 }
             });
             site.link_rel2.forEach(link => {
-                var linkOld = document.querySelector('link[rel="' + link.rel + '"][sizes="' + link.sizes + '"]');
+                let linkOld = document.querySelector('link[rel="' + link.rel + '"][sizes="' + link.sizes + '"]');
                 if (linkOld) {
                     linkOld.setAttribute("href", site.link_rel2.filter(function (a) { return new RegExp(link.rel, "i").test(a.rel) && new RegExp(link.sizes, "i").test(a.sizes); })[0].href);
                 } else {
-                    var linkRel = document.createElement('link');
+                    let linkRel = document.createElement('link');
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('sizes', link.sizes);
                     linkRel.setAttribute('href', link.href);
@@ -225,11 +225,11 @@
                 }
             });
             site.link_rel3.forEach(link => {
-                var linkOld = document.querySelector('link[rel="' + link.rel + '"][type="' + link.type + '"][sizes="' + link.sizes + '"]');
+                let linkOld = document.querySelector('link[rel="' + link.rel + '"][type="' + link.type + '"][sizes="' + link.sizes + '"]');
                 if (linkOld) {
                     linkOld.setAttribute("href", site.link_rel3.filter(function (a) { return new RegExp(link.rel, "i").test(a.rel) && new RegExp(link.type, "i").test(a.type) && new RegExp(link.sizes, "i").test(a.sizes); })[0].href);
                 } else {
-                    var linkRel = document.createElement('link');
+                    let linkRel = document.createElement('link');
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('type', link.type);
                     linkRel.setAttribute('sizes', link.sizes);
@@ -238,11 +238,11 @@
                 }
             });
             site.link_rel4.forEach(link => {
-                var linkOld = document.querySelector('link[rel="' + link.rel + '"]');
+                let linkOld = document.querySelector('link[rel="' + link.rel + '"]');
                 if (linkOld) {
                     linkOld.setAttribute("href", site.link_rel4.filter(function (a) { return new RegExp(link.rel, "i").test(a.rel); })[0].href);
                 } else {
-                    var linkRel = document.createElement('link');
+                    let linkRel = document.createElement('link');
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('href', link.href);
                     linkRel.setAttribute('color', link.color);
@@ -251,10 +251,10 @@
             });
             //
             
-var schemaorg = '<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"'+dataid.title+'","alternateName":"'+dataid.lower+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'","logo":"https://docs.isjl.org/files/theme/images/thumbnail.webp"},{"@type":"Organization","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#organization","name":"'+dataid.title+'","alternateName":"'+dataid.lower+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'"},{"@type":"WebSite","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#website","name":"'+dataid.title+'","alternateName":"'+dataid.lower+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'","potentialAction":{"@type":"SearchAction","target":"https://docs.isjl.org/?p='+dataid.permalink+'#s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"BreadcrumbList","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#listItem","position":"1","name":"HOME","url":"https://docs.isjl.org/?p='+dataid.permalink+'"},{"@type":"ListItem","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#listItem","position":"2","name":"'+dataid.upper+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'"},{"@type":"ListItem","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#listItem","position":"3","name":"'+stitle+'"}]},{"@type":"WebPage","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#webpage","url":"https://docs.isjl.org/?p='+dataid.permalink+'","name":"'+stitle+'","description":"'+sdesc+'","inLanguage":"id-ID","isPartOf":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#website"},"breadcrumb":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#breadcrumblist"},"datePublished":"2023-08-22T01:15:20+07:00","dateModified":"2023-08-22T01:15:20+07:00"},{"@type":"Article","mainEntityOfPage":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#webpage"},"headline":"'+stitle+'","description":"'+sdesc+'","image":"https://docs.isjl.org/files/theme/images/thumbnail.webp","datePublished":"2023-08-22T01:15:20+07:00","dateModified":"2023-08-22T01:15:20+07:00","author":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#organization"},"publiser":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#organization"}}]}<\/script>';
+let schemaorg = '<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"'+dataid.title+'","alternateName":"'+dataid.lower+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'","logo":"https://docs.isjl.org/files/theme/images/thumbnail.webp"},{"@type":"Organization","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#organization","name":"'+dataid.title+'","alternateName":"'+dataid.lower+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'"},{"@type":"WebSite","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#website","name":"'+dataid.title+'","alternateName":"'+dataid.lower+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'","potentialAction":{"@type":"SearchAction","target":"https://docs.isjl.org/?p='+dataid.permalink+'#s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"BreadcrumbList","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#listItem","position":"1","name":"HOME","url":"https://docs.isjl.org/?p='+dataid.permalink+'"},{"@type":"ListItem","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#listItem","position":"2","name":"'+dataid.upper+'","url":"https://docs.isjl.org/?p='+dataid.permalink+'"},{"@type":"ListItem","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#listItem","position":"3","name":"'+stitle+'"}]},{"@type":"WebPage","@id":"https://docs.isjl.org/?p='+dataid.permalink+'#webpage","url":"https://docs.isjl.org/?p='+dataid.permalink+'","name":"'+stitle+'","description":"'+sdesc+'","inLanguage":"id-ID","isPartOf":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#website"},"breadcrumb":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#breadcrumblist"},"datePublished":"2023-08-22T01:15:20+07:00","dateModified":"2023-08-22T01:15:20+07:00"},{"@type":"Article","mainEntityOfPage":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#webpage"},"headline":"'+stitle+'","description":"'+sdesc+'","image":"https://docs.isjl.org/files/theme/images/thumbnail.webp","datePublished":"2023-08-22T01:15:20+07:00","dateModified":"2023-08-22T01:15:20+07:00","author":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#organization"},"publiser":{"@id":"https://docs.isjl.org/?p='+dataid.permalink+'#organization"}}]}<\/script>';
 head.innerHTML += schemaorg;
             //wby content
-            var excludedElements = ["SCRIPT", "META", "TITLE", "STYLE"];
+            let excludedElements = ["SCRIPT", "META", "TITLE", "STYLE"];
             const bodyElement = Array.prototype.filter.call(document.querySelectorAll("body *"), (function (element) {
                 return excludedElements.indexOf(element.nodeName) === -1;
             }));
