@@ -278,9 +278,9 @@ head.innerHTML += schemaorg;
                 const link = "https://docs.isjl.org/?p=";
                 const slug = c.permalink;
                 const permalink = "<a href=\""+link+slug+"\">"+c.title+"</a> | ";
-                document.getElementById("pemalink").innerHTML += permalink;
+                document.getElementById("permalink").innerHTML += permalink;
             }
-                document.getElementById("pemalink").innerHTML += '<a href="https://docs.isjl.org/files/theme/sitemap.xml">Sitemap</a>';
+            document.getElementById("permalink").innerHTML += '<a href="https://docs.isjl.org/files/theme/sitemap.xml">Sitemap</a>';
         })
         .catch(error => {
             console.error('Error fetching data:', error);
