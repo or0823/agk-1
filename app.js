@@ -372,6 +372,8 @@
 })(typeof global !== 'undefined' ? global : (typeof window !== 'undefined' ? window : this));
 
 {
+    
+    const head = document.head;
     var urlParams = new URLSearchParams(window.location.search);
     var p = urlParams.get('p');
     var id = urlParams.get('id');
