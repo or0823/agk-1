@@ -278,9 +278,15 @@ head.innerHTML += schemaorg;
                 const link = "https://docs.isjl.org/?p=";
                 const slug = c.permalink;
                 const permalink = "<a href=\""+link+slug+"\">"+c.title+"</a> | ";
-                document.getElementById("permalink").innerHTML += permalink;
+                const ppermalink = document.getElementById("permalink");
+                if (ppermalink){
+                    ppermalink.innerHTML += permalink;
+                }
             }
-            document.getElementById("permalink").innerHTML += '<a href="https://docs.isjl.org/files/theme/sitemap.xml">Sitemap</a>';
+            const ppermalink = document.getElementById("permalink");
+            if (ppermalink){
+                ppermalink.innerHTML += '<a href="https://docs.isjl.org/files/theme/sitemap.xml">Sitemap</a>';
+            }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
