@@ -1,6 +1,5 @@
 
 {
-    const URLSearchParams = window.URLSearchParams;
     let urlParams = new URLSearchParams(window.location.search);
     let p = urlParams.get('p');
     let id = urlParams.get('id');
