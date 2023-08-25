@@ -560,7 +560,7 @@
                     var metaTag = document.createElement('meta');
                     metaTag.setAttribute('name', meta.name);
                     metaTag.setAttribute('content', meta.content);
-                    head.appendChild(metaTag);
+                    head.innerHTML+=metaTag;
                 }
             });
             site.meta_property.forEach(meta => {
@@ -571,7 +571,7 @@
                     var metaTag = document.createElement('meta');
                     metaTag.setAttribute('property', meta.property);
                     metaTag.setAttribute('content', meta.content);
-                    head.appendChild(metaTag);
+                    head.innerHTML+=metaTag;
                 }
             });
             site.link_rel.forEach(link => {
@@ -582,7 +582,7 @@
                     var linkRel = document.createElement('link');
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('href', link.href);
-                    head.appendChild(linkRel);
+                    head.innerHTML+=linkRel;
                 }
             });
             site.link_rel2.forEach(link => {
@@ -594,7 +594,7 @@
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('sizes', link.sizes);
                     linkRel.setAttribute('href', link.href);
-                    head.appendChild(linkRel);
+                    head.innerHTML+=linkRel;
                 }
             });
             site.link_rel3.forEach(link => {
@@ -607,7 +607,7 @@
                     linkRel.setAttribute('type', link.type);
                     linkRel.setAttribute('sizes', link.sizes);
                     linkRel.setAttribute('href', link.href);
-                    head.appendChild(linkRel);
+                    head.innerHTML+=linkRel;
                 }
             });
             site.link_rel4.forEach(link => {
@@ -619,7 +619,7 @@
                     linkRel.setAttribute('rel', link.rel);
                     linkRel.setAttribute('href', link.href);
                     linkRel.setAttribute('color', link.color);
-                    head.appendChild(linkRel);
+                    head.innerHTML+=linkRel;
                 }
             });
             //
