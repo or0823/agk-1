@@ -5,7 +5,7 @@
     var p = urlParams.get('p');
     var id = urlParams.get('id');
 
-    fetch(`./site.webmanifest`)
+    fetch(`site.webmanifest`)
         .then(response => response.json())
         .then(data => {
             if (p !== null) {
